@@ -12,16 +12,27 @@
 <body>
 
     <div id="app">
-        <div class="demo" @click="attachRed = !attachRed" :class="{'red': attachRed}"></div>
-        <div class="demo" @click="attachRed = !attachRed" :class="{'green': attachRed}"></div>
-        <div class="demo" @click="attachRed = !attachRed" :class="{'blue': attachRed}"></div>
+        <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+        <div class="demo" :class="{'red': attachRed}"></div>
+        <div class="demo" :class="[color, {'red': attachRed}]"></div>
+        <hr>
+        <input type="text" v-model="color">
     </div>
 
     <script type="text/javascript">
         new Vue({
             el: '#app',
             data: {
-                attachRed: false
+                attachRed: false,
+                color: 'green'
+            },
+            computed:{
+                divClasses:function(){
+                    return{
+                        red: this.attachRed,
+                        blue: !this.attachRed
+                    };
+                }
             }
         })
     </script>
