@@ -12,7 +12,10 @@
 
     <div id="app">
         <ul>
-            <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+            <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{i}})</li>
+        </ul>
+        <ol>
+            <li v-for="(person, i) in persons">{{ person }} ({{i}})</li>
         </ul>
     </div>
     <script>
@@ -21,8 +24,8 @@
             data: {
                 ingredients: ['meat', 'fruit', 'cookies'],
                 persons: [
-                    { name: 'Dana', age: 21, color: 'blue' },
-                    { name: 'Yalda', age: 22, color: 'red' }
+                    { name: 'QSD', age: 21, color: 'blue' },
+                    { name: 'AZE', age: 22, color: 'red' }
                 ]
             }
         })</script>
