@@ -17,7 +17,7 @@
             <h1>Heading</h1>
             <p>Inside a template</p>
         </template>
-        <p>Can you see me?</p>
+        <p v-show="show">Can you see me?</p>
         <button @click="show = !show">Switch</button>
     </div>
     <script>
