@@ -10,7 +10,8 @@ new Vue({
       height: '150px',
       backgroundColor: 'gray'
     },
-    progressBar: {
+    progress: {
+      height: "20px",
       width: "0px",
       backgroundColor: 'red'
     }
@@ -31,9 +32,9 @@ new Vue({
       var intervalId = setInterval(function () {
         console.log("Tick");
         width += 10;
-        vm.progressBar.width = width + 'px';
+        vm.progress.width = width + 'px';
 
-        if (width >= 120){
+        if (width >= 200){
           clearInterval(intervalId);
         }
       }, 500)
