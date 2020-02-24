@@ -14,9 +14,11 @@
         <ul>
             <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{i}})</li>
         </ul>
-        <ol>
-            <li v-for="(person, i) in persons">{{ person }} ({{i}})</li>
-        </ul>
+        <template v-for="(ingredient, index) in ingredients">
+            <h1>{{ingredient}}</h1>
+            <p>{{index}}</p>
+        </template>
+
     </div>
     <script>
         new Vue({
