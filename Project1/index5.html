@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <button v-on:click="changeLink">Click to change link</button>
+        <a v-bind:href="link">Link</a>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                changed: false,
+                link: 'https://google.com'
+            },
+            methods: {
+                changeLink: function () {
+                    if (!this.changed) {
+                        this.link = "http://apple.com";
+                    }
+                    else {
+                        this.link = "http://google.com";
+                    }
+                    this.changed = !this.changed;
+                }
+            }
+        })</script>
+</body>
+
+</html>
