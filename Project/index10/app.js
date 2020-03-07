@@ -12,21 +12,24 @@ new Vue({
             this.monsterHealth = 100;
         },
         attack: function () {
-            //var damage = this.calculcateDamage(3,10);
-            this.monsterHealth -= this.calculcateDamage(3, 10);;
-
+            this.monsterHealth -= this.calculcateDamage(3, 10);
             if (this.checkWin())
                 return;
-
             this.playerHealth -= this.calculcateDamage(5, 12);
-
             this.checkWin()
         },
         specialAttack: function () {
-
+            this.monsterHealth -= this.calculcateDamage(10, 20);
+            if (this.checkWin())
+                return;
+            this.monsterAttacks();
+            this.checkWin()
         },
         heal: function () {
-
+            if (this.playerHealth <= 90)
+                this.playerHealth += 10;
+            else { this.playerHealth = 100; }
+            this.monsterAttacks();
         },
         giveUp: function () {
             this.isGameRunning = false;
@@ -36,21 +39,24 @@ new Vue({
         },
         checkWin: function () {
             if (this.monsterHealth <= 0) {
-                if (confirm('You won! New Game?')) {
-                    this.startGame();
-                } else {
-                    this.isGameRunning = false;
-                }
+                this.newGameDialogue('won');
                 return true;
             } else if (this.playerHealth <= 0) {
-                if (confirm('You lost! New Game?')) {
-                    this.startGame();
-                } else {
-                    this.isGameRunning = false;
-                }
+                this.newGameDialogue('lost');
                 return true;
             }
             return false;
+        },
+        newGameDialogue: function (text) {
+            if (confirm(`You ${text}! New Game?`)) {
+                this.startGame();
+            } else {
+                this.isGameRunning = false;
+            }
+
+        },
+        monsterAttacks: function () {
+            this.playerHealth -= this.calculcateDamage(5, 12);
         }
     }
 
