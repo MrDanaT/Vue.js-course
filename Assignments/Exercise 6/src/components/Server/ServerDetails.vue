@@ -1,5 +1,5 @@
 <template>
-  <div class='col-xs-12 col-sm-6'>
+  <div class="col-xs-12 col-sm-6">
     <p>Server Details are currently not updated</p>
   </div>
 </template>
@@ -8,5 +8,8 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+div {
+  border: 1px solid red;
+}
 </style>
