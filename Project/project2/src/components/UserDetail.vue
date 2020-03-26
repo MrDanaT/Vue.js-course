@@ -8,12 +8,20 @@
 
 <script>
 export default {
-    props: ['myName'],
-    methods:{
-        switchName(){
-            return this.myName.split('').reverse().join('');
-        }
+  props: {
+    myName: {
+      type: String,
+      default: 'Aardappel'
+    },
+  },
+  methods: {
+    switchName() {
+      return this.myName
+        .split("")
+        .reverse()
+        .join("");
     }
+  }
 };
 </script>
 
