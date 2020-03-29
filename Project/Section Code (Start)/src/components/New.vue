@@ -15,7 +15,13 @@ data(){
 },
 destroyed(){
     console.log('Destroy');
-}
+},
+deactivated(){
+    console.log('Deactivated');
+},
+activated(){
+    console.log('Activated');
+},
 }
 </script>
 
