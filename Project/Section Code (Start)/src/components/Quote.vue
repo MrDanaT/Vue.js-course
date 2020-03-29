@@ -2,7 +2,9 @@
   <div>
     <div class="titel">
       <slot name="title"></slot>
-      <span style="color: #ccc"><slot name="subtitle" >The Subtitle</slot></span>
+      <span style="color: #ccc">
+        <slot name="subtitle">The Subtitle</slot>
+      </span>
     </div>
     <hr />
     <div>
