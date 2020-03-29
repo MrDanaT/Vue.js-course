@@ -10,11 +10,13 @@
 </template>
 
 <script>
+import { eventBus } from "../main.js";
+
 export default {
   props: {
     myName: {
       type: String,
-      default: 'Dana'
+      default: "Dana"
     },
     resetFn: Function,
     userAge: Number
@@ -26,10 +28,15 @@ export default {
         .reverse()
         .join("");
     },
-    resetName(){
-        this.myName = 'Dana';
-        this.$emit('nameWasReset', this.myName);
+    resetName() {
+      this.myName = "Dana";
+      this.$emit("nameWasReset", this.myName);
     }
+  },
+  created() {
+    eventBus.$on("ageWasEdited", age => {
+      this.userAge = age;
+    });
   }
 };
 </script>
