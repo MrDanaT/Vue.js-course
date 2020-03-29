@@ -7,13 +7,15 @@
         <button @click="selectedComponent = 'appNew'">New</button>
         <hr />
         <p>{{selectedComponent}}</p>
-        <component :is="selectedComponent">
+        <keep-alive>
+          <component :is="selectedComponent">
             <p>Default Content</p>
-        </component>
+          </component>
+        </keep-alive>
         <!-- <app-quote>
           <h2 slot="title">{{quoteTitle}}</h2>
           <p>A wonderful Quote</p>
-        </app-quote> -->
+        </app-quote>-->
       </div>
     </div>
   </div>
