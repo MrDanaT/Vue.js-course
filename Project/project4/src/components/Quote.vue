@@ -2,17 +2,14 @@
   <div class="col-sm6 col-md4-4 col-lg-3">
     <div class="panel panel-default">
       <div class="panel-body quote">
-          <slot></slot>
+        <slot></slot>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Quote from "./Grid.vue";
-
-export default {
-};
+export default {};
 </script>
 
 <style>

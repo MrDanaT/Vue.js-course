@@ -1,16 +1,19 @@
 <template>
-<div class="row">
-
-</div>
+  <div class="row">
+      <quote v-for="quote in quotes">{{quote}}</quote>
+  </div>
 </template>
 
 <script>
-import Quote from "./Grid.vue";
+import Quote from "./Quote.vue";
 
 export default {
-    props:{
-        quotes: Array
-    }
+  props: {
+    quotes: Array
+  },
+  components: {
+    "quote": Quote
+  }
 };
 </script>
 
