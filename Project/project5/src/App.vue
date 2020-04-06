@@ -53,8 +53,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
           <label for="priority">Priority</label>
-          <select id="priority" class="form-control">
-            <option></option>
+          <select class="form-control" id="priority" v-model="selectedPrior">
+            <option v-for="prior in priorities">{{prior}}</option>
           </select>
         </div>
       </div>
@@ -86,7 +86,7 @@
               </li>
             </ul>
             <p>Gender: {{gender}}</p>
-            <p>Priority:</p>
+            <p>Priority: {{selectedPrior}}</p>
             <p>Switched:</p>
           </div>
         </div>
@@ -107,7 +107,9 @@ export default {
           },
           message: 'Some text',
           sendMail: [],
-          gender: 'Male'
+          gender: 'Male',
+          selectedPrior: 'High',
+          priorities: ['High', 'Medium', 'Low']
         };
     }
 };
