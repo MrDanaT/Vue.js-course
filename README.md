@@ -1,4 +1,4 @@
-# VUe.js course
+# Vue.js course
 
 ## What is VUe.js
 
