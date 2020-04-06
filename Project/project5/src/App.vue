@@ -7,7 +7,8 @@
           <hr />
           <div class="form-group">
             <label for="email">Mail</label>
-            <input type="text" id="email" class="form-control" v-model="userData.email"/>
+            <input :value="userData.email" @input="userData.email = $event.target.value" class="form-control" id="email"
+                   type="text"/>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
