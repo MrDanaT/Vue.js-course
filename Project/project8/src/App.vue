@@ -4,9 +4,13 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Animations</h1>
                 <hr>
+                <select v-model="alertAnimation">
+                    <option value="fade">Fade</option>
+                    <option value="slide">Slide</option>
+                </select>
                 <button @click="show = !show" class="btn btn-primary">Show Alert</button>
                 <br><br>
-                <transition name="slide">
+                <transition :name="alertAnimation">
                     <div class="alert alert-info" v-show="show">This is some info 1</div>
                 </transition>
                 <transition name="fade" type="animation">
@@ -25,7 +29,8 @@
     export default {
         data() {
             return {
-                show: true
+                show: true,
+                alertAnimation: 'fade'
             }
         }
     }
