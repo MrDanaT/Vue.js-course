@@ -13,7 +13,10 @@
     import {fruitMixin} from './Mixin.js';
 
     export default {
-        mixins: [fruitMixin]
+        mixins: [fruitMixin],
+        created() {
+            console.log("Created List!");
+        }
     }
 </script>
 
