@@ -7,7 +7,7 @@
                 <button @click="show = !show" class="btn btn-primary">Show Alert</button>
                 <br><br>
                 <transition name="slide">
-                    <div class="alert alert-info" v-if="show">This is some info</div>
+                    <div class="alert alert-info" v-show="show">This is some info</div>
                 </transition>
                 <transition name="fade" type="animation">
                     <div class="alert alert-info" v-if="show">This is some info</div>
