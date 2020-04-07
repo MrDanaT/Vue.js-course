@@ -37,11 +37,12 @@
                         @after-leave="afterLeave"
                         @before-enter="beforeEnter"
                         @before-leave="beforeLeave"
+
                         @enter="enter"
                         @enter-cancelled="enterCancelled"
                         @leave="leave"
                         @leave-cancelled="leaveCancelled"
-                >
+                        :css="false">
                     <div style="width: 100px; height: 100px; background-color: #76ff7e" v-if="load"></div>
                 </transition>
             </div>
