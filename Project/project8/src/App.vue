@@ -7,13 +7,14 @@
                 <button @click="show = !show" class="btn btn-primary">Show Alert</button>
                 <br><br>
                 <transition name="slide">
-                    <div class="alert alert-info" v-show="show">This is some info</div>
+                    <div class="alert alert-info" v-show="show">This is some info 1</div>
                 </transition>
                 <transition name="fade" type="animation">
-                    <div class="alert alert-info" v-if="show">This is some info</div>
+                    <div class="alert alert-info" v-if="show">This is some info 2</div>
                 </transition>
-                <transition appear name="fade" type="animation">
-                    <div class="alert alert-info" v-if="show">This is some info</div>
+                <transition appear enter-active-class="animated bounce" enter-class=""
+                            leave-active-class="animated shake" leave-class="">
+                    <div class="alert alert-info" v-if="show">This is some info3</div>
                 </transition>
             </div>
         </div>
