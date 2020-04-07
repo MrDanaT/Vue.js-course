@@ -16,9 +16,17 @@
                 <transition name="fade" type="animation">
                     <div class="alert alert-info" v-if="show">This is some info 2</div>
                 </transition>
-                <transition appear enter-active-class="animated bounce" enter-class=""
-                            leave-active-class="animated shake" leave-class="">
+                <transition
+                        appear enter-active-class="animated bounce"
+                        enter-class=""
+                        leave-active-class="animated shake"
+                        leave-class="">
                     <div class="alert alert-info" v-if="show">This is some info3</div>
+                </transition>
+                <hr>
+                <transition :name="alertAnimation" mode="out-in">
+                    <div class="alert alert-info" key="info" v-if="show">This is some info 4</div>
+                    <div class="alert alert-warning" key="warning" v-else>This is some info 4</div>
                 </transition>
             </div>
         </div>
