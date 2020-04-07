@@ -28,6 +28,22 @@
                     <div class="alert alert-info" key="info" v-if="show">This is some info 4</div>
                     <div class="alert alert-warning" key="warning" v-else>This is some info 4</div>
                 </transition>
+                <br><br><br>
+                <hr>
+                <button @click="load = !load" class="btn btn-primary">Load/ Remove elmenet</button>
+                <br><br>
+                <transition
+                        @after-enter="afterEnter"
+                        @after-leave="afterLeave"
+                        @before-enter="beforeEnter"
+                        @before-leave="beforeLeave"
+                        @enter="enter"
+                        @enter-cancelled="enterCancelled"
+                        @leave="leave"
+                        @leave-cancelled="leaveCancelled"
+                >
+                    <div style="width: 100px; height: 100px; background-color: #76ff7e" v-if="load"></div>
+                </transition>
             </div>
         </div>
     </div>
@@ -38,7 +54,36 @@
         data() {
             return {
                 show: true,
-                alertAnimation: 'fade'
+                alertAnimation: 'fade',
+                load: true
+            }
+        },
+        methods: {
+            beforeEnter(el) {
+                console.log('beforeEnter');
+            },
+            enter(el, done) {
+                console.log('enter');
+                done();
+            },
+            afterEnter(el) {
+                console.log('afterEnter');
+            },
+            enterCancelled(el) {
+                console.log('enterCancelled');
+            },
+            beforeLeave(el) {
+                console.log('beforeLeave');
+            },
+            leave(el, done) {
+                console.log('leave');
+                done();
+            },
+            afterLeave(el) {
+                console.log('afterLeave');
+            },
+            leaveCancelled(el) {
+                console.log('leaveCancelled');
             }
         }
     }
