@@ -55,11 +55,16 @@
                     <component :is="selectedComponent"></component>
                 </transition>
                 <button @click="addItem" class="btn btn-primary">Add Item</button>
+                <button @click="sortNumbers" class="btn btn-primary">Sort List</button>
                 <br><br>
                 <ul class="list-group">
-                    <li @click="removeItem(idx)" class="list-group-item" style="cursor: pointer"
-                        v-for="(number, idx) in numbers">{{number}}
-                    </li>
+                    <transition-group name="fade">
+                        <li :key="number" @click="removeItem(idx)" class="list-group-item"
+                            style="cursor: pointer"
+                            v-for="(number, idx) in numbers">{{number}}
+                        </li>
+
+                    </transition-group>
                 </ul>
             </div>
         </div>
@@ -136,6 +141,9 @@
             },
             removeItem(idx) {
                 this.numbers.splice(idx, 1);
+            },
+            sortNumbers() {
+                this.numbers.sort();
             }
         },
         components: {
@@ -161,6 +169,11 @@
     .fade-leave-active {
         transition: opacity 1s;
         opacity: 0;
+        position: absolute;
+    }
+
+    .fade-move {
+        transition: transform 1s;
     }
 
     .slide-enter {
