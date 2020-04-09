@@ -29,7 +29,14 @@
         },
         methods: {
             submit() {
-                console.log(this.user);
+                // console.log(this.user);
+                this.$http
+                    .post('https://vue-course-7056e.firebaseio.com/data.json', this.user)
+                    .then(response => {
+                        console.log(response);
+                    }, error => {
+                        console.error(error);
+                    });
             }
         }
     }
