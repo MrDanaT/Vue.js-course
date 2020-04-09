@@ -38,7 +38,7 @@
             submit() {
                 // console.log(this.user);
                 this.$http
-                    .post('https://vue-course-7056e.firebaseio.com/data.json', this.user)
+                    .post('', this.user)
                     .then(response => {
                         console.log(response);
                     }, error => {
@@ -47,7 +47,7 @@
             },
             fetchData() {
                 this.$http
-                    .get('https://vue-course-7056e.firebaseio.com/data.json')
+                    .get('')
                     .then(response => {
                         return response.json();
                     })
