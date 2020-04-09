@@ -12,6 +12,12 @@
                     <input class="form-control" type="text" v-model="user.email">
                 </div>
                 <button @click="submit" class="btn btn-primary">Submit!</button>
+                <hr>
+                <button @click="fetchData" class="btn btn-primary">Get Data</button>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="u in users">{{u.username}} / {{u.email}}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -24,7 +30,8 @@
                 user: {
                     username: '',
                     email: ''
-                }
+                },
+                users: []
             }
         },
         methods: {
@@ -37,6 +44,20 @@
                     }, error => {
                         console.error(error);
                     });
+            },
+            fetchData() {
+                this.$http
+                    .get('https://vue-course-7056e.firebaseio.com/data.json')
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        const resultArray = [];
+                        for (let key in data) {
+                            resultArray.push(data[key]);
+                        }
+                        this.users = resultArray;
+                    })
             }
         }
     }
