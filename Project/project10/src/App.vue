@@ -13,6 +13,8 @@
                 </div>
                 <button @click="submit" class="btn btn-primary">Submit!</button>
                 <hr>
+                <input class="form-control" type="text" v-model="node">
+                <br><br>
                 <button @click="fetchData" class="btn btn-primary">Get Data</button>
                 <br><br>
                 <ul class="list-group">
@@ -32,7 +34,8 @@
                     email: ''
                 },
                 users: [],
-                resource: {}
+                resource: {},
+                node: 'data'
             }
         },
         methods: {
@@ -50,25 +53,37 @@
                 this.resource.saveAlt(this.user);
             },
             fetchData() {
-                this.$http
-                    .get('data.json')
-                    .then(response => {
-                        return response.json();
-                    })
+                // this.$http
+                //     .get('data.json')
+                //     .then(response => {
+                //         return response.json();
+                //     })
+                //     .then(data => {
+                //         const resultArray = [];
+                //         for (let key in data) {
+                //             resultArray.push(data[key]);
+                //         }
+                //         this.users = resultArray;
+                //     })
+
+                this.resource.getData({node: this.node}).then(response => {
+                    return response.json();
+                })
                     .then(data => {
                         const resultArray = [];
                         for (let key in data) {
                             resultArray.push(data[key]);
                         }
                         this.users = resultArray;
-                    })
+                    });
             }
         },
         created() {
             const customActions = {
-                saveAlt: {method: 'POST', url: 'alternative.json'}
+                saveAlt: {method: 'POST', url: 'alternative.json'},
+                getData: {method: 'GET'}
             }
-            this.resource = this.$resource('data.json', {}, customActions);
+            this.resource = this.$resource('{node}.json', {}, customActions);
         }
     }
 </script>
