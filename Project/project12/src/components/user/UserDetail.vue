@@ -16,7 +16,7 @@
             return {
                 link: {
                     name: 'userEdit',
-                    params: {id: $route.params.id},
+                    params: {id: this.$route.params.id},
                     query: {locale: 'en', q: 100},
                     hash: '#data'
                 }

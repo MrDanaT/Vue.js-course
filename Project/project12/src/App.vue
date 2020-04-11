@@ -41,19 +41,19 @@
     }
 
     @keyframes slide-in {
-        0% {
+        from {
             transform: translateY(-30px);
         }
-        100% {
+        to {
             transform: translateY(0);
         }
     }
 
     @keyframes slide-out {
-        0% {
+        from {
             transform: translateY(0);
         }
-        100% {
+        to {
             transform: translateY(-30px);
         }
     }
