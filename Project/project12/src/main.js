@@ -24,6 +24,11 @@ const router = new VueRouter({
     }
 });
 
+router.beforeEach((to, from, next) => {
+    console.log("Globel for each.");
+    next();
+})
+
 new Vue({
     el: '#app',
     router,
