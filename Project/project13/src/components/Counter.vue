@@ -1,7 +1,7 @@
 <template>
     <div>
-        <button class="btn btn-primary" @click="increment">Increment</button>
-        <button class="btn btn-primary" @click="decrement">Decrement</button>
+        <button @click="increment(100)" class="btn btn-primary">Increment</button>
+        <button @click="decrement(500)" class="btn btn-primary">Decrement</button>
     </div>
 </template>
 
